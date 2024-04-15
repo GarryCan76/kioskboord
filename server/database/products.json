@@ -1,0 +1,20 @@
+{
+  "burgers": {
+    "beef": [
+
+    ],
+    "chicken": [
+
+    ],
+    "fish": [
+
+    ]
+  },
+  "fries": [
+
+  ],
+  "drinks": [
+    {"name": "cola", "calories": 58, "available": true},
+    {"name": "cola_zero", "calories": 58}
+  ]
+}
