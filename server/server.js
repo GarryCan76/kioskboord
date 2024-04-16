@@ -20,10 +20,22 @@ http.listen(port, hostname, ()=>{
 
 let kiosksConnected = 0;
 io.on('connection', socket =>{
+    console.log('kiosks Connected ' + kiosksConnected)
+    let products = loadJson('server/database/products.json');
     kiosksConnected++
+    socket.emit('productsItems', products)
 
     socket.on('disconnect', ()=>{
         kiosksConnected--
         console.log('kiosk disconnected');
     })
 });
+
+
+
+const fs = require('fs');
+
+function loadJson(filePath) {
+    const jsonString = fs.readFileSync(filePath, 'utf-8');
+    return JSON.parse(jsonString);
+}

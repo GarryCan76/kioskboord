@@ -1,7 +1,71 @@
 {
   "burgers": {
     "beef": [
+      {
+        "name": "BigMac",
+        "KJ": 2.191,
+        "Kcal": 524,
+        "price": 0,
+        "image": "./assets/product_images/big_mac.jpg"
 
+      },
+      {
+        "name": "Single_QuarterPounder",
+        "KJ": 2.199,
+        "Kcal": 526,
+        "price": 0,
+        "image": ""
+
+      },{
+        "name": "Double_QuarterPounder",
+        "KJ": 0,
+        "Kcal": 0,
+        "price": 0,
+        "image": ""
+
+      },{
+        "name": "Single_BigTasty",
+        "KJ": 0,
+        "Kcal": 0,
+        "price": 0,
+        "image": ""
+
+      },{
+        "name": "Double_BigTasty",
+        "KJ": 0,
+        "Kcal": 0,
+        "price": 0,
+        "image": ""
+
+      },{
+        "name": "McKroket",
+        "KJ": 0,
+        "Kcal": 0,
+        "price": 0,
+        "image": ""
+
+      },{
+        "name": "Hamburger",
+        "KJ": 0,
+        "Kcal": 0,
+        "price": 0,
+        "image": ""
+
+      },{
+        "name": "Cheeseburger",
+        "KJ": 0,
+        "Kcal": 0,
+        "price": 0,
+        "image": ""
+
+      },{
+        "name": "Double_Cheeseburger",
+        "KJ": 0,
+        "Kcal": 0,
+        "price": 0,
+        "image": ""
+
+      }
     ],
     "chicken": [
 
