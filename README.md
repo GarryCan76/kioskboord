@@ -1,0 +1,1 @@
+Wij hebben een kiosk bord gemaakt voor de mac donalds. Dit hebben wij met socket gemaakt op een node server in javascript.
