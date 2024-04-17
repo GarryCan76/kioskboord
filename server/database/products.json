@@ -2,83 +2,257 @@
   "burgers": {
     "beef": [
       {
-        "name": "BigMac",
+        "name": "Big Mac",
         "KJ": 2.191,
         "Kcal": 524,
-        "price": 0,
-        "image": "./assets/product_images/big_mac.jpg"
+        "price": 5.95,
+        "image": "./assets/product_images/ngk_gui_nl_main_big_mac_product-header-desktop.jpg",
+        "available": true
 
       },
       {
-        "name": "Single_QuarterPounder",
+        "name": "Single Quarter Pounder",
         "KJ": 2.199,
         "Kcal": 526,
-        "price": 0,
-        "image": ""
+        "price": 5.95,
+        "image": "./assets/product_images/gui_nl_main_quarter-pounder_product-header-desktop.jpg",
+        "available": true
 
       },{
-        "name": "Double_QuarterPounder",
-        "KJ": 0,
-        "Kcal": 0,
-        "price": 0,
-        "image": ""
+        "name": "Double Quarter Pounder",
+        "KJ": 3.147,
+        "Kcal": 754,
+        "price": 7.50,
+        "image": "./assets/product_images/ngk_gui_nl_main_app_double_qp_new_product-header-desktop.jpg",
+        "available": true
 
       },{
-        "name": "Single_BigTasty",
-        "KJ": 0,
-        "Kcal": 0,
-        "price": 0,
-        "image": ""
+        "name": "Single_Big_Tasty",
+        "KJ": 2.779,
+        "Kcal": 666,
+        "price": 7.50,
+        "image": "./assets/product_images/gui_nl_main_big_tasty_bacon_product-header-desktop.jpg",
+        "available": true
 
       },{
-        "name": "Double_BigTasty",
-        "KJ": 0,
-        "Kcal": 0,
-        "price": 0,
-        "image": ""
+        "name": "Double BigTasty",
+        "KJ": 3.927,
+        "Kcal": 942,
+        "price": 8.95,
+        "image": "./assets/product_images/ngk_gui_nl_main_Big tasty_double_product-header-desktop.jpg",
+        "available": true
 
       },{
         "name": "McKroket",
-        "KJ": 0,
-        "Kcal": 0,
-        "price": 0,
-        "image": ""
+        "KJ": 1.458,
+        "Kcal": 347,
+        "price": 3.95,
+        "image": "./assets/product_images/gui_main_McKroket_product-header-desktop.jpg",
+        "available": true
 
       },{
         "name": "Hamburger",
-        "KJ": 0,
-        "Kcal": 0,
-        "price": 0,
-        "image": ""
+        "KJ": 1.036,
+        "Kcal": 247,
+        "price": 1.60,
+        "image": "./assets/product_images/gui_main_hamburger_product-header-desktop.jpg",
+        "available": true
 
       },{
         "name": "Cheeseburger",
-        "KJ": 0,
-        "Kcal": 0,
-        "price": 0,
-        "image": ""
+        "KJ": 1.246,
+        "Kcal": 297,
+        "price": 1.95,
+        "image": "./assets/product_images/gui_main_cheeseburger_product-header-desktop.jpg",
+        "available": true
 
       },{
-        "name": "Double_Cheeseburger",
-        "KJ": 0,
-        "Kcal": 0,
-        "price": 0,
-        "image": ""
-
+        "name": "Double Cheeseburger",
+        "KJ": 1.835,
+        "Kcal": 438,
+        "price": 3.25,
+        "image": "./assets/product_images/ngk_gui_nl_main_Double_Cheeseburger_product-header-desktop.jpg",
+        "available": true
       }
     ],
     "chicken": [
-
+      {
+        "name": "Chili Chicken",
+        "KJ": 1.316,
+        "Kcal": 313,
+        "price": 1.95,
+        "image": "./assets/product_images/gui_nl_main_chili_chicken_product-header-desktop.jpg",
+        "available": true
+      },{
+        "name": "Double Chili Chicken",
+        "KJ": 1.916,
+        "Kcal": 457,
+        "price": 2.25,
+        "image": "./assets/product_images/gui_nl_main_dubbele_chili_chicken_product-header-desktop.jpg",
+        "available": true
+      },{
+        "name": "McChicken",
+        "KJ": 1.960,
+        "Kcal": 468,
+        "price": 5.05,
+        "image": "./assets/product_images/ngk_gui_nl_main_app_mcchicken_product-header-desktop.jpg",
+        "available": true
+      },{
+        "name": "Spicy McChicken",
+        "KJ": 2.158,
+        "Kcal": 516,
+        "price": 5.05,
+        "image": "./assets/product_images/ngk_gui_nl_main_Spicy McChicken New_product-header-desktop.jpg",
+        "available": true
+      },{
+        "name": "Homestyle Crispy Chicken Honey Mustard",
+        "KJ": 3.120,
+        "Kcal": 747 ,
+        "price": 6.20,
+        "image": "./assets/product_images/ngk_gui_nl_main_HCC-HoneyMustard_product-header-desktop.jpg",
+        "available": true
+      }
     ],
     "fish": [
-
+      {
+        "name": "Filet-O-Fish",
+        "KJ": 1.362,
+        "Kcal": 324 ,
+        "price": 4.60,
+        "image": "./assets/product_images/gui_main_filet_fish_product-header-desktop.jpg",
+        "available": true
+      }
     ]
   },
   "fries": [
-
+    {
+      "name": "Franse Frietjes Klein",
+      "KJ": 968,
+      "Kcal": 231,
+      "price": 2.30,
+      "image": "./assets/product_images/gui_nl_main_frites_small_product-header-desktop.jpg",
+      "available": true
+    },{
+      "name": "Franse Frietjes Klein",
+      "KJ": 1.379,
+      "Kcal": 329,
+      "price": 3.35,
+      "image": "./assets/product_images/gui_nl_main_frites_medium_product-header-desktop.jpg",
+      "available": true
+    },{
+      "name": "Franse Frietjes Klein",
+      "KJ": 1.815,
+      "Kcal": 434,
+      "price": 3.60,
+      "image": "./assets/product_images/gui_nl_main_frites_large_product-header-desktop.jpg",
+      "available": true
+    }
   ],
   "drinks": [
-    {"name": "cola", "calories": 58, "available": true},
-    {"name": "cola_zero", "calories": 58}
-  ]
+    {
+      "name": "Spa Blue",
+      "KJ": 0,
+      "Kcal": 0,
+      "price": 3,
+      "image": "./assets/product_images/ngk_gui_nl_main_Spa 50cl_product-header-desktop.jpg",
+      "available": true
+    },{
+      "name": "Spa Red",
+      "KJ": 0,
+      "Kcal": 0,
+      "price": 3.05,
+      "image": "./assets/product_images/ngk_gui_nl_main_Spa Intense 50cl_product-header-desktop.jpg",
+      "available": true
+    },{
+      "name": "Coca-Cola Zero Sugar",
+      "KJ": 6,
+      "Kcal": 2,
+      "price": 2.65,
+      "image": "./assets/product_images/th-Coca-ColaZeroMedium_product-header-desktop.jpg",
+      "isCup": true,
+      "available": true
+    },{
+      "name": "Coca-Cola",
+      "KJ": 723,
+      "Kcal": 170,
+      "image": "./assets/product_images/th-Coca-ColaMedium_product-header-desktop.jpg",
+      "isCup": true,
+      "available": true
+    },{
+      "name": "Sprite Zero",
+      "KJ": 20,
+      "Kcal": 4,
+      "image": "./assets/product_images/gui_nl_main_medium_sprite_product-header-desktop.jpg",
+      "isCup": true,
+      "available": true
+    },{
+      "name": "Fanta",
+      "KJ": 399,
+      "Kcal": 93,
+      "image": "./assets/product_images/th-FantaMedium_product-header-desktop.jpg",
+      "isCup": true,
+      "available": true
+    },{
+      "name": "Lipton Ice Tea",
+      "KJ": 720,
+      "Kcal": 168,
+      "image": "./assets/product_images/ngk_gui_nl_main_coupon_lipton_ice_tea_medium_product-header-desktop.jpg",
+      "isCup": true,
+      "available": true
+    },{
+      "name": "Tropicana Appelsap",
+      "KJ": 539,
+      "Kcal": 126,
+      "price": 2.70,
+      "image": "./assets/product_images/th-TropicanaAppelsap_product-header-desktop.jpg",
+      "available": true
+    },{
+      "name": "Vers Sinaasappelsap",
+      "KJ": 417,
+      "Kcal": 99 ,
+      "price": 2.70,
+      "image": "./assets/product_images/th-VerseSinaasappelsap_product-header-mobile.jpg",
+      "available": true
+    },{
+      "name": "Verse Smoothie Aardbei - Banaan",
+      "KJ": 576,
+      "Kcal": 136,
+      "price": 2.70,
+      "image": "./assets/product_images/th-VerseSmoothieAardbei-Banaan_product-header-desktop.jpg",
+      "available": true
+    },{
+      "name": "100% Biologische Halfvolle Melk",
+      "KJ": 676,
+      "Kcal": 160,
+      "price": 2.70,
+      "image": "./assets/product_images/th-Biologische-Halfvolle-Melk_product-header-desktop.jpg",
+      "available": true
+    },{
+      "name": "Chocomel",
+      "KJ": 406,
+      "Kcal": 96,
+      "price": 2.70,
+      "image": "./assets/product_images/th-Chocomel_product-header-desktop.jpg",
+      "available": true
+    },{
+      "name": "Fristi",
+      "KJ": 382,
+      "Kcal": 91,
+      "price": 2.70,
+      "image": "./assets/product_images/th-Fristi_product-header-desktop.jpg",
+      "available": true
+    },{
+      "name": "Red",
+      "KJ": 0,
+      "Kcal": 0,
+      "price": 3,
+      "image": "./assets/product_images/",
+      "available": true
+    }
+  ],
+  "drinksInfo": {
+    "S": {"price": 2.65, "ml": 250},
+    "M": {"price": 3.05, "ml": 400},
+    "L": {"price": 3.50, "ml": 500}
+  }
 }

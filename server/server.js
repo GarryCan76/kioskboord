@@ -20,9 +20,11 @@ http.listen(port, hostname, ()=>{
 
 let kiosksConnected = 0;
 io.on('connection', socket =>{
-    console.log('kiosks Connected ' + kiosksConnected)
-    let products = loadJson('server/database/products.json');
     kiosksConnected++
+    console.log('kiosks Connected ' + kiosksConnected)
+    // https://www.snack-nieuws.nl/wat-kost-een-bezoek-aan-mcdonalds-in-2024/
+    // https://www.vrouwers.nl/mcdonalds-prijzen-complete-prijslijst/
+    let products = loadJson('server/database/products.json');
     socket.emit('productsItems', products)
 
     socket.on('disconnect', ()=>{
