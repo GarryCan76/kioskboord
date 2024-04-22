@@ -1,0 +1,87 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: Speedee, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif;
+}
+.sidebar_flexbox{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#sidebar{
+    width: 250px;
+    height: 100%;
+    border-right: 1px solid black;
+    display: flex;
+    margin-right: 55px;
+}
+
+.sidebar_item{
+    width: 250px;
+    height: 125px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid black;
+}
+
+.sidebar_image{
+    margin-right: 20px;
+    width:100px;
+    height: 100px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+h1{
+    color: black;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+#logo_nav{
+    width: 135px;
+    height: 100px;
+    object-fit: cover;
+    margin: 20px 0 10px 0;
+}
+
+#sidebar_logo{
+    height: 200px;
+}
+
+.item_price{
+    font-size: 52px;
+}
+
+.item_image{
+    width: 350px;
+    height: 200px;
+    object-fit: cover;
+}
+
+
+/*? hier onder begint de header waar de producten in staan  */
+
+header{
+    background-color:blue;
+    flex: 1;
+}
+
+.Product{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border: 1px solid black;
+}
+
+/*? footer beging hier onder */
+
+footer{
+    width: 100%;
+    height: 150px;
+    background-color: red;
+}

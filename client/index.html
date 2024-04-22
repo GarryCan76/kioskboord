@@ -1,12 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-<script src="socket.io/socket.io.js"></script>
-<script type="module" src="js/index.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mcdonalds</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="sidebar_flexbox">
+      <div id="sidebar">
+        <ul>
+          <li class="sidebar_item" id="sidebar_logo">
+            <img src="./assets/mcdonalds_logo.png" alt="logo" id="logo_nav" />
+          </li>
+          <li class="sidebar_item">
+            <img
+              class="sidebar_image"
+              src="./assets/sidebar_images/koudedrank_sidebar.jpeg"
+              alt=""
+              id="drinks"
+            />
+            <h3>drinken</h3>
+          </li>
+          <li class="sidebar_item">
+            <img
+              class="sidebar_image"
+              src="./assets/sidebar_images/vis_sidebar.jpeg"
+              alt=""
+              id="fish"
+            />
+            <h3>vis</h3>
+          </li>
+          <li class="sidebar_item">
+            <img
+              class="sidebar_image"
+              src="./assets/sidebar_images/Rundvlees_sidebar.jpeg"
+              alt=""
+              id="beef"
+            />
+            <h3>rund</h3>
+          </li>
+          <li class="sidebar_item">
+            <img
+              class="sidebar_image"
+              src="./assets/sidebar_images/kip_sidebar.jpeg"
+              alt=""
+              id="chicken"
+            />
+            <h3>kip</h3>
+          </li>
+          <li class="sidebar_item">
+            <img
+              class="sidebar_image"
+              src="./assets/sidebar_images/friet_&_sousjes_sidebar.jpeg"
+              alt=""
+              id="fries"
+            />
+            <h3>friet</h3>
+          </li>
+        </ul>
+      </div>
+      <header id="items">
+        <h1>lunch</h1>
+        <h2>title van sidebar</h2>
+      </header>
+      <footer>
+        <div id="de_footer"></div>
+      </footer>
+    </div>
+  </body>
+  <script src="socket.io/socket.io.js"></script>
+  <script type="module" src="js/index.js"></script>
 </html>
