@@ -64,7 +64,6 @@
         "price": 1.95,
         "image": "./assets/product_images/gui_main_cheeseburger_product-header-desktop.jpg",
         "available": true
-
       },{
         "name": "Double Cheeseburger",
         "KJ": 1.835,
@@ -132,14 +131,14 @@
       "image": "./assets/product_images/gui_nl_main_frites_small_product-header-desktop.jpg",
       "available": true
     },{
-      "name": "Franse Frietjes Klein",
+      "name": "Franse Frietjes Medium",
       "KJ": 1.379,
       "Kcal": 329,
       "price": 3.35,
       "image": "./assets/product_images/gui_nl_main_frites_medium_product-header-desktop.jpg",
       "available": true
     },{
-      "name": "Franse Frietjes Klein",
+      "name": "Franse Frietjes Groot",
       "KJ": 1.815,
       "Kcal": 434,
       "price": 3.60,
@@ -240,18 +239,77 @@
       "price": 2.70,
       "image": "./assets/product_images/th-Fristi_product-header-desktop.jpg",
       "available": true
-    },{
-      "name": "Red",
-      "KJ": 0,
-      "Kcal": 0,
-      "price": 3,
-      "image": "./assets/product_images/",
-      "available": true
     }
   ],
   "drinksInfo": {
     "S": {"price": 2.65, "ml": 250},
     "M": {"price": 3.05, "ml": 400},
     "L": {"price": 3.50, "ml": 500}
-  }
+  },
+  "sauces": [
+    {
+      "name": "Fritessaus",
+      "KJ": 457,
+      "Kcal": 109,
+      "price": 0.80,
+      "image": "./assets/product_images/Frietsaus_product-header-desktop.jpg",
+      "available": true
+    },{
+      "name": "Mayonaise",
+      "KJ": 917,
+      "Kcal": 223,
+      "price": 0.80,
+      "image": "./assets/product_images/Mayonaise_product-header-desktop.jpg",
+      "available": true
+    },{
+      "name": "Ketchup",
+      "KJ": 196,
+      "Kcal": 46,
+      "price": 0.80,
+      "image": "./assets/product_images/Ketchup-1_product-header-desktop.jpg",
+      "available": true
+    },{
+      "name": "Mosterdsaus",
+      "KJ": 244,
+      "Kcal": 59,
+      "price": 0.80,
+      "image": "./assets/product_images/Mosterd_product-header-desktop.jpg",
+      "available": true
+    },{
+      "name": "Kerriesaus",
+      "KJ": 201,
+      "Kcal": 47,
+      "price": 0.80,
+      "image": "./assets/product_images/Curry_product-header-desktop.jpg",
+      "available": true
+    },{
+      "name": "Zoetzure saus",
+      "KJ": 207,
+      "Kcal": 49,
+      "price": 0.80,
+      "image": "./assets/product_images/Zoetzuur_product-header-desktop.jpg",
+      "available": true
+    },{
+      "name": "Barbecuesaus",
+      "KJ": 204,
+      "Kcal": 48,
+      "price": 0.80,
+      "image": "./assets/product_images/Bbq_product-header-desktop.jpg",
+      "available": true
+    },{
+      "name": "Chili Saus",
+      "KJ": 300,
+      "Kcal": 71,
+      "price": 0.80,
+      "image": "./assets/product_images/Chilisaus_product-header-desktop.jpg",
+      "available": true
+    },{
+      "name": "Red",
+      "KJ": 0,
+      "Kcal": 0,
+      "price": 0.80,
+      "image": "./assets/product_images/",
+      "available": true
+    }
+  ]
 }

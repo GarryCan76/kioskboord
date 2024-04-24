@@ -1,0 +1,192 @@
+[
+  {
+    "orderId":1003,
+    "status":"paid",
+    "products":{
+      "drinks":[
+        {
+          "name": "Sprite Zero",
+          "KJ": 20,
+          "Kcal": 4,
+          "image": "./assets/product_images/gui_nl_main_medium_sprite_product-header-desktop.jpg",
+          "isCup": true,
+          "available": true,
+          "size":"L",
+          "quantity": 2
+        },{
+          "name": "Fanta",
+          "KJ": 399,
+          "Kcal": 93,
+          "image": "./assets/product_images/th-FantaMedium_product-header-desktop.jpg",
+          "isCup": true,
+          "available": true,
+          "size":"M",
+          "quantity": 2
+        }
+      ],
+      "burgers":[
+        {
+          "name": "Big Mac",
+          "KJ": 2.191,
+          "Kcal": 524,
+          "price": 5.95,
+          "image": "./assets/product_images/ngk_gui_nl_main_big_mac_product-header-desktop.jpg",
+          "available": true,
+          "quantity": 2
+        },
+        {
+          "name": "Single Quarter Pounder",
+          "KJ": 2.199,
+          "Kcal": 526,
+          "price": 5.95,
+          "image": "./assets/product_images/gui_nl_main_quarter-pounder_product-header-desktop.jpg",
+          "available": true,
+          "quantity": 1
+
+        },{
+          "name": "McChicken",
+          "KJ": 1.960,
+          "Kcal": 468,
+          "price": 5.05,
+          "image": "./assets/product_images/ngk_gui_nl_main_app_mcchicken_product-header-desktop.jpg",
+          "available": true,
+          "quantity": 1
+        },{
+          "name": "Spicy McChicken",
+          "KJ": 2.158,
+          "Kcal": 516,
+          "price": 5.05,
+          "image": "./assets/product_images/ngk_gui_nl_main_Spicy McChicken New_product-header-desktop.jpg",
+          "available": true,
+          "quantity": 1
+        }
+      ],
+      "fries":[
+        {
+          "name": "Franse Frietjes Groot",
+          "KJ": 1.815,
+          "Kcal": 434,
+          "price": 3.60,
+          "image": "./assets/product_images/gui_nl_main_frites_large_product-header-desktop.jpg",
+          "available": true,
+          "quantity":4
+        }
+      ],
+      "sauces":[
+        {
+          "name": "Fritessaus",
+          "KJ": 457,
+          "Kcal": 109,
+          "price": 0.80,
+          "image": "./assets/product_images/Frietsaus_product-header-desktop.jpg",
+          "available": true,
+          "quantity":5
+        }
+      ]
+    }
+  },
+  {
+    "orderId":349,
+    "status":"paid",
+    "products":{
+      "drinks":[
+        {
+          "name": "Spa Blue",
+          "KJ": 0,
+          "Kcal": 0,
+          "price": 3,
+          "image": "./assets/product_images/ngk_gui_nl_main_Spa 50cl_product-header-desktop.jpg",
+          "available": true,
+          "quantity": 1
+        },{
+          "name": "Fanta",
+          "KJ": 399,
+          "Kcal": 93,
+          "image": "./assets/product_images/th-FantaMedium_product-header-desktop.jpg",
+          "isCup": true,
+          "available": true,
+          "size":"L",
+          "quantity": 1
+        },
+        {
+          "name": "Chocomel",
+          "KJ": 406,
+          "Kcal": 96,
+          "price": 2.70,
+          "image": "./assets/product_images/th-Chocomel_product-header-desktop.jpg",
+          "available": true,
+          "quantity": 2
+        }
+      ],
+      "burgers":[
+        {
+          "name": "Big Mac",
+          "KJ": 2.191,
+          "Kcal": 524,
+          "price": 5.95,
+          "image": "./assets/product_images/ngk_gui_nl_main_big_mac_product-header-desktop.jpg",
+          "available": true,
+          "quantity": 1
+        },
+        {
+          "name": "Cheeseburger",
+          "KJ": 1.246,
+          "Kcal": 297,
+          "price": 1.95,
+          "image": "./assets/product_images/gui_main_cheeseburger_product-header-desktop.jpg",
+          "available": true,
+          "quantity": 3
+
+        },{
+          "name": "Chili Chicken",
+          "KJ": 1.316,
+          "Kcal": 313,
+          "price": 1.95,
+          "image": "./assets/product_images/gui_nl_main_chili_chicken_product-header-desktop.jpg",
+          "available": true,
+          "quantity": 1
+        }
+      ],
+      "fries":[
+        {
+          "name": "Franse Frietjes Groot",
+          "KJ": 1.815,
+          "Kcal": 434,
+          "price": 3.60,
+          "image": "./assets/product_images/gui_nl_main_frites_large_product-header-desktop.jpg",
+          "available": true,
+          "quantity":1
+        },
+        {
+          "name": "Franse Frietjes Klein",
+          "KJ": 968,
+          "Kcal": 231,
+          "price": 2.30,
+          "image": "./assets/product_images/gui_nl_main_frites_small_product-header-desktop.jpg",
+          "available": true,
+          "quantity":3
+        }
+      ],
+      "sauces":[
+        {
+          "name": "Fritessaus",
+          "KJ": 457,
+          "Kcal": 109,
+          "price": 0.80,
+          "image": "./assets/product_images/Frietsaus_product-header-desktop.jpg",
+          "available": true,
+          "quantity":1
+        },
+        {
+          "name": "Ketchup",
+          "KJ": 196,
+          "Kcal": 46,
+          "price": 0.80,
+          "image": "./assets/product_images/Ketchup-1_product-header-desktop.jpg",
+          "available": true,
+          "quantity":3
+        }
+      ]
+    }
+  }
+]
