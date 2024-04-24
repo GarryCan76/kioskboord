@@ -71,6 +71,14 @@ header{
     flex: 1;
 }
 
+#containerItems{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+
 .Product{
     width: 100px;
     height: 100px;

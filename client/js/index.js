@@ -35,10 +35,10 @@ function page(pageType, productroot) {
   products.map((product) => {
     console.log(product);
     // products.map(product, () => {
-    //     jsml.createHTMLElement('img', document.getElementById('items'), false, {'src':beefBurger.image, "classList": 'item_image'})
-    //     jsml.createHTMLElement('p', document.getElementById('items'), beefBurger.name, {"classList":"item_product_name"})
-    //     jsml.createHTMLElement('p', document.getElementById('items'), beefBurger.Kcal, {"classList":"item_kcal"})
-    //     jsml.createHTMLElement('p', document.getElementById('items'), '€' + beefBurger.price,  {"classList":"item_price"})
+    //     jsml.createHTMLElement('img', document.getElementById('containerItems'), false, {'src':beefBurger.image, "classList": 'item_image'})
+    //     jsml.createHTMLElement('p', document.getElementById('containerItems'), beefBurger.name, {"classList":"item_product_name"})
+    //     jsml.createHTMLElement('p', document.getElementById('containerItems'), beefBurger.Kcal, {"classList":"item_kcal"})
+    //     jsml.createHTMLElement('p', document.getElementById('containerItems'), '€' + beefBurger.price,  {"classList":"item_price"})
     // })
   });
 }
