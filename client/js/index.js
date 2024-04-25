@@ -52,14 +52,5 @@ function page(pageType, productroot) {
       console.log('clicked')
     })
   })
-
-
-  // products.map((product) => {
-  //   console.log(product);
-  //       jsml.createHTMLElement('img', document.getElementById('containerItems'), false, {'src':product.image, "classList": 'item_image'})
-  //       jsml.createHTMLElement('p', document.getElementById('containerItems'), product.name, {"classList":"item_product_name"})
-  //       jsml.createHTMLElement('p', document.getElementById('containerItems'), product.Kcal, {"classList":"item_kcal"})
-  //       jsml.createHTMLElement('p', document.getElementById('containerItems'), '€' + product.price,  {"classList":"item_price"})
-  // });
 }
 
