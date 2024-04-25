@@ -1,5 +1,6 @@
 const socket = io();
 import Jsml from "./jsml.js";
+import addProduct from "./addProduct.js";
 const jsml = new Jsml();
 let productlist = false;
 socket.on("connect", () => {
@@ -48,7 +49,7 @@ function page(pageType, productroot) {
     
     document.getElementById('containerItems').appendChild(productDiv)
     productDiv.addEventListener('click', () => {
-      console.log('clicked')
+      addProduct()
     })
   })
 

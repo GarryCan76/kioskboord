@@ -19,16 +19,19 @@ const io = require('socket.io')(http);
 //connect to database
 const dbURI = 'mongodb+srv://garryenderson76:S6vq0QCqnFMPktaP@web-game.xt7azp0.mongodb.net/game-data?retryWrites=true&w=majority';
 
-http.listen(port, hostname, ()=>{
-    console.log(`Server running at http://${hostname}:${port}`)
-})
+mongoose.connect(dbURI)
+    .then((result) => http.listen(port, hostname, ()=>{
+        db = result;
+        console.log(`Server running at http://${hostname}:${port}`)
+    }))
+    .catch((err) => console.log(err))
+
 
 
 
 let orders = loadJson('server/database/orders.json')
 let kiosksConnected = 0;
 io.on('connection', socket =>{
-    sendOrder(socket)
     kiosksConnected++
     console.log('kiosks Connected ' + kiosksConnected)
     // https://www.snack-nieuws.nl/wat-kost-een-bezoek-aan-mcdonalds-in-2024/
