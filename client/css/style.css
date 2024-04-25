@@ -74,14 +74,13 @@ header{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 
 .containerItem{
     display: flex;
     flex-wrap: wrap;
     width: 250px;
-    height: 400px;
+    height: 325px;
     margin: 20px;
     border: 1px solid black;
     flex-direction: column;
@@ -90,7 +89,6 @@ header{
     width: 250px;
     height: 250px;
     object-fit: cover;
-    border-bottom: 1px solid black;
 }
 
 .product_kcal{
@@ -100,6 +98,10 @@ header{
 .containerItem{
 
 } */
+
+.product_price{
+    margin: 0 0 0 10px;
+}
 
 .Product{
     width: 100px;

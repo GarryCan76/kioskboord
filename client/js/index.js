@@ -23,6 +23,7 @@ socket.on("connect", () => {
   });
   socket.on("productsItems", (productItems) => {
     productlist = productItems;
+    document.getElementById("drinks").click();
     // beef = productItems.burgers.beef;
   });
 });
