@@ -67,17 +67,39 @@ h1{
 /*? hier onder begint de header waar de producten in staan  */
 
 header{
-    background-color:blue;
     flex: 1;
 }
 
 #containerItems{
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
-    
+    justify-content: space-between;
 }
 
+.containerItem{
+    display: flex;
+    flex-wrap: wrap;
+    width: 250px;
+    height: 400px;
+    margin: 20px;
+    border: 1px solid black;
+    flex-direction: column;
+}
+.product_image{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 1px solid black;
+}
+
+.product_kcal{
+    display: none;
+ }
+/*
+.containerItem{
+
+} */
 
 .Product{
     width: 100px;

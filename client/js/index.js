@@ -18,6 +18,9 @@ socket.on("connect", () => {
   document.getElementById("fries").addEventListener("click", () => {
     page("fries");
   });
+  document.getElementById("sauces").addEventListener("click", () => {
+    page("sauces");
+  });
   socket.on("productsItems", (productItems) => {
     productlist = productItems;
     // beef = productItems.burgers.beef;
@@ -31,14 +34,31 @@ function page(pageType, productroot) {
   } else {
     products = productlist[pageType];
   }
-  
+
+  jsml.deleteChildren(document.getElementById('containerItems'))
   products.map((product) => {
-    console.log(product);
-    // products.map(product, () => {
-    //     jsml.createHTMLElement('img', document.getElementById('containerItems'), false, {'src':beefBurger.image, "classList": 'item_image'})
-    //     jsml.createHTMLElement('p', document.getElementById('containerItems'), beefBurger.name, {"classList":"item_product_name"})
-    //     jsml.createHTMLElement('p', document.getElementById('containerItems'), beefBurger.Kcal, {"classList":"item_kcal"})
-    //     jsml.createHTMLElement('p', document.getElementById('containerItems'), '€' + beefBurger.price,  {"classList":"item_price"})
-    // })
-  });
+    let productDiv = jsml.elementFromHtml(`
+    <div class="containerItem">
+      <img src="${product.image}" alt="product image" class="product_image"></img>
+      <p class="product_name">${product.name}</p>
+      <p class="product_price">€ ${product.price}</p>
+      <p class="product_kcal">${product.Kcal}</p>
+    </div>
+    `)
+    
+    document.getElementById('containerItems').appendChild(productDiv)
+    productDiv.addEventListener('click', () => {
+      console.log('clicked')
+    })
+  })
+
+
+  // products.map((product) => {
+  //   console.log(product);
+  //       jsml.createHTMLElement('img', document.getElementById('containerItems'), false, {'src':product.image, "classList": 'item_image'})
+  //       jsml.createHTMLElement('p', document.getElementById('containerItems'), product.name, {"classList":"item_product_name"})
+  //       jsml.createHTMLElement('p', document.getElementById('containerItems'), product.Kcal, {"classList":"item_kcal"})
+  //       jsml.createHTMLElement('p', document.getElementById('containerItems'), '€' + product.price,  {"classList":"item_price"})
+  // });
 }
+
