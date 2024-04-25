@@ -36,7 +36,6 @@ function page(pageType, productroot) {
   } else {
     products = productlist[pageType];
   }
-
   jsml.deleteChildren(document.getElementById('containerItems'))
   products.map((product) => {
     let productDiv = jsml.elementFromHtml(`
@@ -50,7 +49,7 @@ function page(pageType, productroot) {
     
     document.getElementById('containerItems').appendChild(productDiv)
     productDiv.addEventListener('click', () => {
-      addProduct()
+      addProduct(product, pageType)
     })
   })
 }

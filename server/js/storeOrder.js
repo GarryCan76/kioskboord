@@ -1,6 +1,5 @@
 const {OrderSchema} = require('../database/models/orderModel')
 const mongoose = require('mongoose');
-
 async function storeOrder (socket){
     const order = new OrderSchema({
         orderId: 2334,
