@@ -1,0 +1,11 @@
+#product-prep *{
+    border: 1px solid black;
+}
+#product-attributes{
+    display: flex;
+    justify-content: space-between;
+}
+#product-attributes > img{
+    width: 100px;
+    height: 100px;
+}
