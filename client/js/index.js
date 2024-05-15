@@ -24,7 +24,8 @@ socket.on("connect", () => {
   });
   socket.on("productsItems", (productItems) => {
     productlist = productItems;
-    document.getElementById("drinks").click();
+    document.getElementById("fries").click();
+    document.getElementById("containerItems").children[0].click();
     // beef = productItems.burgers.beef;
   });
 });
