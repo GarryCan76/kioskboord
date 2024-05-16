@@ -4,30 +4,27 @@ let jsml = new Jsml();
 let containerItems = document.getElementById('containerItems');
 let sidebarElls = Array.from(document.getElementsByClassName('product_type'));
 
-export default function (product, pageType){
-    let productItem = {
-        "amount":1
+export default function addProduct (product, pageType, productList, productItemPrev){
+    let productItem = null;
+    if (productItemPrev){
+        productItem = productItemPrev;
+    }else {
+        productItem = {
+            "product":product,
+            "pageType": pageType,
+            "productList":productList,
+            "amount":1,
+            "sideProducts":false
+        }
     }
+
+    console.log(productItem)
     console.log(product)
     jsml.deleteChildren(containerItems)
     sidebarElls.map(el=>{
         el.style.display = 'none';
     })
     document.getElementById('sidebar').style.display = 'none';
-
-    // if (pageType !== 'drinks'){let sauces = jsml.elementFromHtml(`
-    // <li class="sidebar_item">
-    //         <img
-    //           class="sidebar_image"
-    //           src="./assets/sidebar_images/koudedrank_sidebar.jpeg"
-    //           alt=""
-    //           id="fries"
-    //         />
-    //         <h3>drinks</h3>
-    //       </li>`)
-    //     document.getElementById('product_typelist').appendChild(sauces)
-    // }
-
 
     let stijn = jsml.elementFromHtml(`
 <div id="product-prep">
@@ -90,32 +87,68 @@ r
     })
 
 
+
+
+
+
     // sub products
     if (pageType === 'fries'){
         const subproductsChoice = document.getElementById('subproducts-choice')
         const subproductsButtons = document.getElementById('subproducts-buttons')
 
-        subproductsChoice.appendChild(jsml.elementFromHtml(`<div><p>geen saus</p><p>geen saus</p></div>`))
-        productItem['sauce1'] = 'geen saus';
-        productItem['sauce2'] = 'geen saus';
-        //buttons
-        jsml.createHTMLElement('button', subproductsButtons, 'Wijzigen', {'addEventListener':['click', ()=>{
+        if (productItem.sideProducts){
+            console.log(productItem.sideProducts)
+            subproductsChoice.appendChild(jsml.elementFromHtml(`<div><p>${productItem.sideProducts.sauce1}</p><p>geen saus</p></div>`))
+        }else {
+            productItem['sideProducts'] = {
+                'sauce1':'geen saus',
+                'sauce2':'geen saus'
+            }
+            subproductsChoice.appendChild(jsml.elementFromHtml(`<div><p>geen saus</p><p>geen saus</p></div>`))
+        }
 
+
+
+        //buttons
+        jsml.createHTMLElement('button', subproductsButtons, 'Wijzigen', {
+            'addEventListener': ['click', () => {
                 document.getElementById('sidebar').style.display = 'block';
                 document.getElementById('product-prep').style.display = 'none';
                 document.getElementById('sidebar').appendChild(jsml.elementFromHtml(`
                 <ul>
                 <li class="sidebar_item product_type">
-            <img
-              class="sidebar_image"
-            />
-            <h3>saus</h3>
-          </li>
-                </ul>
-                `))
-            }]})
+                <img class="sidebar_image"/>
+                <h3>saus</h3>
+                </li>
+                </ul>`));
+
+                displaySauces(productList, productItem)
+
+            }]});
         jsml.createHTMLElement('button', subproductsButtons, 'Wijzigen', {'addEventListener':['click', ()=>{
                 console.log('1')
-            }]})
+        }]})
     }
+}
+
+function displaySauces(productList, productItem){
+    //items
+    jsml.deleteChildren(document.getElementById('containerItems'))
+    let products = productList.sauces;
+    products.map((product) => {
+        let productDiv = jsml.elementFromHtml(`
+    <div class="containerItem">
+      <img src="${product.image}" alt="product image" class="product_image">
+      <p class="product_name">${product.name}</p>
+      <p class="product_price">€ ${product.price}</p>
+      <p class="product_kcal">${product.Kcal}</p>
+    </div>
+    `)
+
+        document.getElementById('containerItems').appendChild(productDiv);
+        productDiv.addEventListener('click', () => {
+            productItem.sideProducts.sauce1 = product.name;
+            addProduct(productItem.product, productItem.pageType, productList.productList, productItem)
+        })
+    });
 }

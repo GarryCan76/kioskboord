@@ -41,7 +41,7 @@ function page(pageType, productroot) {
   products.map((product) => {
     let productDiv = jsml.elementFromHtml(`
     <div class="containerItem">
-      <img src="${product.image}" alt="product image" class="product_image"></img>
+      <img src="${product.image}" alt="product image" class="product_image">
       <p class="product_name">${product.name}</p>
       <p class="product_price">€ ${product.price}</p>
       <p class="product_kcal">${product.Kcal}</p>
@@ -50,7 +50,7 @@ function page(pageType, productroot) {
     
     document.getElementById('containerItems').appendChild(productDiv)
     productDiv.addEventListener('click', () => {
-      addProduct(product, pageType)
+      addProduct(product, pageType, productlist)
     })
   })
 }
