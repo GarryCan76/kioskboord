@@ -37,6 +37,7 @@ export default function (product, pageType){
     <p id="small-name">${product.name}</p>
     <img id="small-img" src="${product.image}" alt="">
     <div id="subproducts-choice">
+    <button type="button" class="btn btn-light">Light</button>
     </div>
   </div>
   <div id="subproducts-buttons">
