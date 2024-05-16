@@ -118,4 +118,31 @@ footer{
     width: 100%;
     height: 150px;
     background-color: red;
+    margin-top: 25px;
 }
+/*?  begin van de detailpage */
+
+#product-prep{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#sidebarDetailpage{
+    width: 250px;
+    height: 100%;
+    border-right: 1px solid black;
+    display: flex;
+    margin-right: 55px;
+}
+#sidebarDetailpage{
+    width: 250px;
+    height: 100%;
+    border-right: 1px solid black;
+    display: flex;
+    margin-right: 55px;
+}
+
+#product-prep2{
+    flex:1;
+}
+

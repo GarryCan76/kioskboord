@@ -3,7 +3,7 @@ import Jsml from './jsml.js';
 const jsml = new Jsml();
 socket.on('connect', ()=> {
     socket.on('orders', orders=>{
-        jsml.deleteChildren(document.body)
+        jsml.deleteChildren(document.body,)
         orders.map(order=>{
 
 
