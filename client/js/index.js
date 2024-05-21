@@ -1,4 +1,7 @@
 const socket = io();
+
+import orderObject from "./oderObject.js"
+let orderOb = new orderObject();
 import Jsml from "./jsml.js";
 import addProduct from "./addProduct.js";
 const jsml = new Jsml();
@@ -32,6 +35,7 @@ socket.on("connect", () => {
 
 function page(pageType, productroot) {
   let products = false;
+  console.log(orderOb.products)
   if (productroot) {
     products = productlist[productroot][pageType];
   } else {
@@ -43,14 +47,14 @@ function page(pageType, productroot) {
     <div class="containerItem">
       <img src="${product.image}" alt="product image" class="product_image">
       <p class="product_name">${product.name}</p>
-      <p class="product_price">€ ${product.price.toString()}</p>
+      <p class="product_price">€ ${product.price}</p>
       <p class="product_kcal">${product.Kcal}</p>
     </div>
     `)
     
     document.getElementById('containerItems').appendChild(productDiv)
     productDiv.addEventListener('click', () => {
-      addProduct(product, pageType, productlist)
+      addProduct(product, pageType, productlist, orderOb)
     })
   })
 }
