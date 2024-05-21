@@ -250,14 +250,14 @@
       "name": "Fritessaus",
       "KJ": 457,
       "Kcal": 109,
-      "price": ""0.80"",
+      "price": "0.80",
       "image": "./assets/product_images/Frietsaus_product-header-desktop.jpg",
       "available": true
     },{
       "name": "Mayonaise",
       "KJ": 917,
       "Kcal": 223,
-      "price": ""0.80"",
+      "price": "0.80",
       "image": "./assets/product_images/Mayonaise_product-header-desktop.jpg",
       "available": true
     },{
