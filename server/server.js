@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 let db = undefined;
 
 app.use(express.static('client'))
-const hostname = 'localhost';
+const hostname = '10.52.4.30';
 
 const port = process.env.PORT||8181;
 

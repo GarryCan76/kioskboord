@@ -32,6 +32,9 @@ export default function addProduct (product, pageType, productList, productItemP
  <link rel="stylesheet" href="./css/productprep.css"/>
     <h2 id="small-name">${product.name}</h2>
     <p id="priceItem">€${product.price}</p>
+    <div id="subproducts-choice">
+    <button type="button" class="btn btn-light">Light</button>
+    </div>
       <div id="product-attributes">
          <img id="small_img" src="${product.image}" alt="">
       </div>
