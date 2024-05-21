@@ -4,7 +4,7 @@ let jsml = new Jsml();
 let containerItems = document.getElementById('containerItems');
 let sidebarElls = Array.from(document.getElementsByClassName('product_type'));
 
-export default function addProduct (product, pageType, productList, productItemPrev){
+export default function addProduct (product, pageType, productList, productItemPrev, orderOb){
     let productItem = null;
     if (productItemPrev){
         productItem = productItemPrev;
@@ -146,7 +146,7 @@ r
                 </div>
                 `));
                     let li =jsml.createHTMLElement('li', document.getElementById('prep-list'), false, {"classList":"sidebar_item product_type", 'addEventListener':['click', ()=>{
-                            displaySauces(productList, productItem, type, index)
+                            displaySauces(productList, productItem, type, index, orderOb)
                         }]});
                     if (type.includes(index)){
                         li.click();
@@ -159,7 +159,7 @@ r
     }
 }
 
-function displaySauces(productList, productItem, type, itemIndex){
+function displaySauces(productList, productItem, type, itemIndex, orderOb){
     //items
     jsml.deleteChildren(document.getElementById('containerItems'))
     console.log(productList)
@@ -184,7 +184,7 @@ function displaySauces(productList, productItem, type, itemIndex){
                 console.log('not extra')
             }
             
-            addProduct(productItem.product, productItem.pageType, productList, productItem)
+            addProduct(productItem.product, productItem.pageType, productList, productItem, orderOb)
         })
     });
 }
