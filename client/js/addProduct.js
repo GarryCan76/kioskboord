@@ -96,11 +96,11 @@ r
 
         if (productItem.sideProducts){
             console.log(productItem.sideProducts)
-            subproductsChoice.appendChild(jsml.elementFromHtml(`<div><p>${productItem.sideProducts.sauce1}</p><p>geen saus</p></div>`))
+            subproductsChoice.appendChild(jsml.elementFromHtml(`<div><p>${productItem.sideProducts.sauce0}</p><p>${productItem.sideProducts.sauce1}</p></div>`))
         }else {
             productItem['sideProducts'] = {
-                'sauce1':'geen saus',
-                'sauce2':'geen saus'
+                'sauce0':'geen saus',
+                'sauce1':'geen saus'
             }
             subproductsChoice.appendChild(jsml.elementFromHtml(`<div><p>geen saus</p><p>geen saus</p></div>`))
         }
@@ -110,28 +110,56 @@ r
         //buttons
         jsml.createHTMLElement('button', subproductsButtons, 'Wijzigen', {
             'addEventListener': ['click', () => {
+                let itemIndex = 0;
                 document.getElementById('sidebar').style.display = 'block';
                 document.getElementById('product-prep').style.display = 'none';
-                document.getElementById('sidebar').appendChild(jsml.elementFromHtml(`
-                <ul>
-                <li class="sidebar_item product_type">
+                function listItemEl(type, index){
+                    let listItem = document.getElementById('sidebar').appendChild(jsml.elementFromHtml(`
+                <div>
                 <img class="sidebar_image"/>
-                <h3>saus</h3>
-                </li>
-                </ul>`));
-
-                displaySauces(productList, productItem)
-
+                <h3>${productItem.sideProducts[type]}</h3>
+                </div>
+                `));
+                    let li =jsml.createHTMLElement('li', document.getElementById('prep-list'), false, {"classList":"sidebar_item product_type", 'addEventListener':['click', ()=>{
+                            displaySauces(productList, productItem, type, index)
+                        }]});
+                    if (type.includes(index)){
+                        li.click();
+                    }
+                    li.appendChild(listItem)
+                }
+                listItemEl('sauce0', 0)
+                listItemEl('sauce1', 1)
             }]});
         jsml.createHTMLElement('button', subproductsButtons, 'Wijzigen', {'addEventListener':['click', ()=>{
-                console.log('1')
+                let itemIndex = 1;
+                document.getElementById('sidebar').style.display = 'block';
+                document.getElementById('product-prep').style.display = 'none';
+                function listItemEl(type, index){
+                    let listItem = document.getElementById('sidebar').appendChild(jsml.elementFromHtml(`
+                <div>
+                <img class="sidebar_image"/>
+                <h3>${productItem.sideProducts[type]}</h3>
+                </div>
+                `));
+                    let li =jsml.createHTMLElement('li', document.getElementById('prep-list'), false, {"classList":"sidebar_item product_type", 'addEventListener':['click', ()=>{
+                            displaySauces(productList, productItem, type, index)
+                        }]});
+                    if (type.includes(index)){
+                        li.click();
+                    }
+                    li.appendChild(listItem)
+                }
+                listItemEl('sauce0', 0)
+                listItemEl('sauce1', 1)
         }]})
     }
 }
 
-function displaySauces(productList, productItem){
+function displaySauces(productList, productItem, type, itemIndex){
     //items
     jsml.deleteChildren(document.getElementById('containerItems'))
+    console.log(productList)
     let products = productList.sauces;
     products.map((product) => {
         let productDiv = jsml.elementFromHtml(`
@@ -145,8 +173,15 @@ function displaySauces(productList, productItem){
 
         document.getElementById('containerItems').appendChild(productDiv);
         productDiv.addEventListener('click', () => {
-            productItem.sideProducts.sauce1 = product.name;
-            addProduct(productItem.product, productItem.pageType, productList.productList, productItem)
+            productItem.sideProducts[type] = product.name;
+            // jsml.deleteChildren(document.getElementById('prep-list'))
+            if (document.getElementById('prep-list').children[itemIndex + 1]){
+                console.log('extra item')
+            }else {
+                console.log('not extra')
+            }
+            
+            addProduct(productItem.product, productItem.pageType, productList, productItem)
         })
     });
 }
