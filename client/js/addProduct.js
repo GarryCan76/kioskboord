@@ -25,27 +25,25 @@ export default function addProduct (product, pageType, productList, productItemP
         el.style.display = 'none';
     })
     document.getElementById('sidebar').style.display = 'none';
-
+    document.getElementById('subtitle').style.display = 'none';
+    document.getElementById('h1').style.display = 'none';
     let stijn = jsml.elementFromHtml(`
 <div id="product-prep">
-  <link rel="stylesheet" href="./css/productprep.css"/>
-  <img src="${product.image}" alt="">
-  <div id="product-attributes">
-    <p id="small-name">${product.name}</p>
-    <img id="small-img" src="${product.image}" alt="">
-    <div id="subproducts-choice">
-    <button type="button" class="btn btn-light">Light</button>
-    </div>
-  </div>
-  <div id="subproducts-buttons">
-  </div>
-  <div>
-    <button id="product-minus">-</button>
-    <input id="product-amount" type="number" value="1">
-    <button id="product-plus">+</button>
-  </div>
-  <button id="cancel">Product annuleren</button>
-  <button id="addto-order">Toevoegen aan bestelling</button>
+ <link rel="stylesheet" href="./css/productprep.css"/>
+    <h2 id="small-name">${product.name}</h2>
+    <p id="priceItem">€${product.price}</p>
+      <div id="product-attributes">
+         <img id="small_img" src="${product.image}" alt="">
+      </div>
+      <div id="subproducts-buttons">
+      </div>
+      <div>
+        <button id="product-minus" class="btn btn-primary">-</button>
+        <input id="product-amount" type="number" value="1">
+        <button id="product-plus" class="btn btn-primary">+</button>
+      </div>
+      <button id="cancel" class="btn btn-light">Product annuleren</button>
+      <button id="addto-order" class="btn btn-light">Toevoegen aan bestelling</button>
 </div>
 `)
     document.getElementById('containerItems').appendChild(stijn)
