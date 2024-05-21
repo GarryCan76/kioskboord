@@ -4,50 +4,49 @@ let jsml = new Jsml();
 let containerItems = document.getElementById('containerItems');
 let sidebarElls = Array.from(document.getElementsByClassName('product_type'));
 
-export default function (product, pageType){
-    let productItem = {
-        "amount":1
+export default function addProduct (product, pageType, productList, productItemPrev){
+    let productItem = null;
+    if (productItemPrev){
+        productItem = productItemPrev;
+    }else {
+        productItem = {
+            "product":product,
+            "pageType": pageType,
+            "productList":productList,
+            "amount":1,
+            "sideProducts":false
+        }
     }
+
+    console.log(productItem)
     console.log(product)
     jsml.deleteChildren(containerItems)
     sidebarElls.map(el=>{
         el.style.display = 'none';
     })
     document.getElementById('sidebar').style.display = 'none';
-
-    // if (pageType !== 'drinks'){let sauces = jsml.elementFromHtml(`
-    // <li class="sidebar_item">
-    //         <img
-    //           class="sidebar_image"
-    //           src="./assets/sidebar_images/koudedrank_sidebar.jpeg"
-    //           alt=""
-    //           id="fries"
-    //         />
-    //         <h3>drinks</h3>
-    //       </li>`)
-    //     document.getElementById('product_typelist').appendChild(sauces)
-    // }
-
-
+    document.getElementById('subtitle').style.display = 'none';
+    document.getElementById('h1').style.display = 'none';
     let stijn = jsml.elementFromHtml(`
 <div id="product-prep">
-  <link rel="stylesheet" href="./css/productprep.css"/>
-  <img src="${product.image}" alt="">
-  <div id="product-attributes">
-    <p id="small-name">${product.name}</p>
-    <img id="small-img" src="${product.image}" alt="">
+ <link rel="stylesheet" href="./css/productprep.css"/>
+    <h2 id="small-name">${product.name}</h2>
+    <p id="priceItem">€${product.price}</p>
     <div id="subproducts-choice">
+    <button type="button" class="btn btn-light">Light</button>
     </div>
-  </div>
-  <div id="subproducts-buttons">
-  </div>
-  <div>
-    <button id="product-minus">-</button>
-    <input id="product-amount" type="number" value="1">
-    <button id="product-plus">+</button>
-  </div>
-  <button id="cancel">Product annuleren</button>
-  <button id="addto-order">Toevoegen aan bestelling</button>
+      <div id="product-attributes">
+         <img id="small_img" src="${product.image}" alt="">
+      </div>
+      <div id="subproducts-buttons">
+      </div>
+      <div>
+        <button id="product-minus" class="btn btn-primary">-</button>
+        <input id="product-amount" type="number" value="1">
+        <button id="product-plus" class="btn btn-primary">+</button>
+      </div>
+      <button id="cancel" class="btn btn-light">Product annuleren</button>
+      <button id="addto-order" class="btn btn-light">Toevoegen aan bestelling</button>
 </div>
 `)
     document.getElementById('containerItems').appendChild(stijn)
@@ -89,32 +88,103 @@ r
     })
 
 
+
+
+
+
     // sub products
     if (pageType === 'fries'){
         const subproductsChoice = document.getElementById('subproducts-choice')
         const subproductsButtons = document.getElementById('subproducts-buttons')
 
-        subproductsChoice.appendChild(jsml.elementFromHtml(`<div><p>geen saus</p><p>geen saus</p></div>`))
-        productItem['sauce1'] = 'geen saus';
-        productItem['sauce2'] = 'geen saus';
-        //buttons
-        jsml.createHTMLElement('button', subproductsButtons, 'Wijzigen', {'addEventListener':['click', ()=>{
+        if (productItem.sideProducts){
+            console.log(productItem.sideProducts)
+            subproductsChoice.appendChild(jsml.elementFromHtml(`<div><p>${productItem.sideProducts.sauce0}</p><p>${productItem.sideProducts.sauce1}</p></div>`))
+        }else {
+            productItem['sideProducts'] = {
+                'sauce0':'geen saus',
+                'sauce1':'geen saus'
+            }
+            subproductsChoice.appendChild(jsml.elementFromHtml(`<div><p>geen saus</p><p>geen saus</p></div>`))
+        }
 
+
+
+        //buttons
+        jsml.createHTMLElement('button', subproductsButtons, 'Wijzigen', {
+            'addEventListener': ['click', () => {
+                let itemIndex = 0;
                 document.getElementById('sidebar').style.display = 'block';
                 document.getElementById('product-prep').style.display = 'none';
-                document.getElementById('sidebar').appendChild(jsml.elementFromHtml(`
-                <ul>
-                <li class="sidebar_item product_type">
-            <img
-              class="sidebar_image"
-            />
-            <h3>saus</h3>
-          </li>
-                </ul>
-                `))
-            }]})
+                function listItemEl(type, index){
+                    let listItem = document.getElementById('sidebar').appendChild(jsml.elementFromHtml(`
+                <div>
+                <img class="sidebar_image"/>
+                <h3>${productItem.sideProducts[type]}</h3>
+                </div>
+                `));
+                    let li =jsml.createHTMLElement('li', document.getElementById('prep-list'), false, {"classList":"sidebar_item product_type", 'addEventListener':['click', ()=>{
+                            displaySauces(productList, productItem, type, index)
+                        }]});
+                    if (type.includes(index)){
+                        li.click();
+                    }
+                    li.appendChild(listItem)
+                }
+                listItemEl('sauce0', 0)
+                listItemEl('sauce1', 1)
+            }]});
         jsml.createHTMLElement('button', subproductsButtons, 'Wijzigen', {'addEventListener':['click', ()=>{
-                console.log('1')
-            }]})
+                let itemIndex = 1;
+                document.getElementById('sidebar').style.display = 'block';
+                document.getElementById('product-prep').style.display = 'none';
+                function listItemEl(type, index){
+                    let listItem = document.getElementById('sidebar').appendChild(jsml.elementFromHtml(`
+                <div>
+                <img class="sidebar_image"/>
+                <h3>${productItem.sideProducts[type]}</h3>
+                </div>
+                `));
+                    let li =jsml.createHTMLElement('li', document.getElementById('prep-list'), false, {"classList":"sidebar_item product_type", 'addEventListener':['click', ()=>{
+                            displaySauces(productList, productItem, type, index)
+                        }]});
+                    if (type.includes(index)){
+                        li.click();
+                    }
+                    li.appendChild(listItem)
+                }
+                listItemEl('sauce0', 0)
+                listItemEl('sauce1', 1)
+        }]})
     }
+}
+
+function displaySauces(productList, productItem, type, itemIndex){
+    //items
+    jsml.deleteChildren(document.getElementById('containerItems'))
+    console.log(productList)
+    let products = productList.sauces;
+    products.map((product) => {
+        let productDiv = jsml.elementFromHtml(`
+    <div class="containerItem">
+      <img src="${product.image}" alt="product image" class="product_image">
+      <p class="product_name">${product.name}</p>
+      <p class="product_price">€ ${product.price}</p>
+      <p class="product_kcal">${product.Kcal}</p>
+    </div>
+    `)
+
+        document.getElementById('containerItems').appendChild(productDiv);
+        productDiv.addEventListener('click', () => {
+            productItem.sideProducts[type] = product.name;
+            // jsml.deleteChildren(document.getElementById('prep-list'))
+            if (document.getElementById('prep-list').children[itemIndex + 1]){
+                console.log('extra item')
+            }else {
+                console.log('not extra')
+            }
+            
+            addProduct(productItem.product, productItem.pageType, productList, productItem)
+        })
+    });
 }
