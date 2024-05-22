@@ -42,6 +42,10 @@ h1{
     margin-left: 50px;
 }
 
+#product_typelist{
+    padding: 0;
+}
+
 #logo_nav{
     width: 135px;
     height: 100px;
@@ -86,9 +90,10 @@ header{
     flex-direction: column;
 }
 .product_image{
-    width: 250px;
-    height: 250px;
+    width: 248px;
+    height: 225px;
     object-fit: cover;
+    flex: 1;
 }
 
 .product_kcal{
@@ -109,7 +114,7 @@ header{
     width: 100px;
     height: 100px;
     background-color: red;
-    border: 1px solid black;
+    border: 1px solid black
 }
 
 /*? footer beging hier onder */
@@ -119,6 +124,8 @@ footer{
     height: 150px;
     background-color: red;
     margin-top: 25px;
+    display: none;
+    /*moet nog verwijdert worden*/
 }
 /*?  begin van de detailpage */
 

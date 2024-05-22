@@ -32,21 +32,27 @@ export default function addProduct (product, pageType, productList, productItemP
  <link rel="stylesheet" href="./css/productprep.css"/>
     <h2 id="small-name">${product.name}</h2>
     <p id="priceItem">€${product.price}</p>
-    <div id="subproducts-choice">
-    <button type="button" class="btn btn-light">Light</button>
-    </div>
+
       <div id="product-attributes">
          <img id="small_img" src="${product.image}" alt="">
       </div>
+        <div id="saus_div">
+            <p id="big-name">${product.name}</p>
+            <img id="big_img" src="${product.image}" alt="">
+            <div id="subproducts-choice">
+            </div>
+        </div>
       <div id="subproducts-buttons">
       </div>
-      <div>
+      <div id="plusAndMin">
         <button id="product-minus" class="btn btn-primary">-</button>
         <input id="product-amount" type="number" value="1">
         <button id="product-plus" class="btn btn-primary">+</button>
       </div>
-      <button id="cancel" class="btn btn-light">Product annuleren</button>
-      <button id="addto-order" class="btn btn-light">Toevoegen aan bestelling</button>
+      <div id="buttons_order">
+        <button id="cancel" class="btn btn-light">Product annuleren</button> 
+        <button id="addto-order" class="btn btn-light">Toevoegen aan bestelling</button>
+      </div>
 </div>
 `)
     document.getElementById('containerItems').appendChild(stijn)
@@ -95,15 +101,15 @@ r
     // sub products
     if (pageType === 'fries'){
         const subproductsChoice = document.getElementById('subproducts-choice')
-        const subproductsButtons = document.getElementById('subproducts-buttons')
+        const subproductsButtons = document.getElementById('subproducts-choice')
 
         if (productItem.sideProducts){
             console.log(productItem.sideProducts)
             subproductsChoice.appendChild(jsml.elementFromHtml(`<div><p>${productItem.sideProducts.sauce0}</p><p>${productItem.sideProducts.sauce1}</p></div>`))
         }else {
             productItem['sideProducts'] = {
-                'sauce0':'geen saus',
-                'sauce1':'geen saus'
+                'sauce0': 'geen saus',
+                'sauce1': 'geen saus'
             }
             subproductsChoice.appendChild(jsml.elementFromHtml(`<div><p>geen saus</p><p>geen saus</p></div>`))
         }
