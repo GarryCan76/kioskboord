@@ -5,6 +5,7 @@ let containerItems = document.getElementById('containerItems');
 let sidebarElls = Array.from(document.getElementsByClassName('product_type'));
 
 export default function addProduct (product, pageType, productList, productItemPrev, orderOb){
+    console.log(orderOb.products)
     let productItem = null;
     if (productItemPrev){
         productItem = productItemPrev;
@@ -74,7 +75,6 @@ export default function addProduct (product, pageType, productList, productItemP
             productItem.amount++
             productAmountInput.value = productItem.amount;
         }
-r
     })
     productAmountInput.addEventListener('input', ()=>{
         productItem.amount = parseInt(productAmountInput.value);
@@ -85,6 +85,15 @@ r
 
 
     document.getElementById('cancel').addEventListener('click', ()=>{
+        jsml.deleteChildren(containerItems)
+        sidebarElls.map(el=>{
+            el.style.display = 'flex';
+        })
+        document.getElementById('sidebar').style.display = 'flex';
+        document.getElementById("drinks").click()
+    })
+    document.getElementById('addto-order').addEventListener('click', ()=>{
+        orderOb.products.push(productItem)
         jsml.deleteChildren(containerItems)
         sidebarElls.map(el=>{
             el.style.display = 'flex';
@@ -119,6 +128,7 @@ r
         //buttons
         jsml.createHTMLElement('button', subproductsButtons, 'Wijzigen', {
             'addEventListener': ['click', () => {
+                jsml.deleteChildren(document.getElementById('prep-list'))
                 let itemIndex = 0;
                 document.getElementById('sidebar').style.display = 'block';
                 document.getElementById('product-prep').style.display = 'none';
@@ -130,7 +140,8 @@ r
                 </div>
                 `));
                     let li =jsml.createHTMLElement('li', document.getElementById('prep-list'), false, {"classList":"sidebar_item product_type", 'addEventListener':['click', ()=>{
-                            displaySauces(productList, productItem, type, index)
+
+                            displaySauces(productList, productItem, type, index, orderOb, li)
                         }]});
                     if (type.includes(index)){
                         li.click();
@@ -139,20 +150,24 @@ r
                 }
                 listItemEl('sauce0', 0)
                 listItemEl('sauce1', 1)
+                displayOverview(productItem)
             }]});
         jsml.createHTMLElement('button', subproductsButtons, 'Wijzigen', {'addEventListener':['click', ()=>{
+                jsml.deleteChildren(document.getElementById('prep-list'))
+
                 let itemIndex = 1;
                 document.getElementById('sidebar').style.display = 'block';
                 document.getElementById('product-prep').style.display = 'none';
                 function listItemEl(type, index){
                     let listItem = document.getElementById('sidebar').appendChild(jsml.elementFromHtml(`
-                <div>
-                <img class="sidebar_image"/>
-                <h3>${productItem.sideProducts[type]}</h3>
-                </div>
-                `));
+                    <div>
+                    <img class="sidebar_image"/>
+                    <h3>${productItem.sideProducts[type]}</h3>
+                    </div>
+                    `));
                     let li =jsml.createHTMLElement('li', document.getElementById('prep-list'), false, {"classList":"sidebar_item product_type", 'addEventListener':['click', ()=>{
-                            displaySauces(productList, productItem, type, index, orderOb)
+
+                        displaySauces(productList, productItem, type, index, orderOb, li)
                         }]});
                     if (type.includes(index)){
                         li.click();
@@ -161,11 +176,30 @@ r
                 }
                 listItemEl('sauce0', 0)
                 listItemEl('sauce1', 1)
-        }]})
+                displayOverview(productItem)
+
+        }]});
+        function displayOverview(productItem){
+            let overLi =jsml.createHTMLElement('li', document.getElementById('prep-list'), false, {"classList":"sidebar_item product_type", 'addEventListener':['click', ()=>{
+                    jsml.deleteChildren(document.getElementById('containerItems'));
+                    let displayOverview = document.getElementById('containerItems').appendChild(jsml.elementFromHtml(`
+                <div>
+                <img class="sidebar_image"/>
+                <h3>${productItem.sideProducts.sauce0}</h3>
+                <h3>${productItem.sideProducts.sauce1}</h3>
+                </div>`))
+                }]});
+            overLi.id = 'overview';
+            let Overview = overLi.appendChild(jsml.elementFromHtml(`
+                <div>
+                <img class="sidebar_image"/>
+                <h3>overview</h3>
+                </div>`))
+        }
     }
 }
 
-function displaySauces(productList, productItem, type, itemIndex, orderOb){
+function displaySauces(productList, productItem, type, itemIndex, orderOb, li){
     //items
     jsml.deleteChildren(document.getElementById('containerItems'))
     console.log(productList)
@@ -183,14 +217,15 @@ function displaySauces(productList, productItem, type, itemIndex, orderOb){
         document.getElementById('containerItems').appendChild(productDiv);
         productDiv.addEventListener('click', () => {
             productItem.sideProducts[type] = product.name;
-            // jsml.deleteChildren(document.getElementById('prep-list'))
-            if (document.getElementById('prep-list').children[itemIndex + 1]){
+            li.querySelector('h3').innerHTML = productItem.sideProducts[type];
+            if (document.getElementById('prep-list').children[itemIndex + 2]){
                 console.log('extra item')
+
             }else {
-                console.log('not extra')
+                document.getElementById('overview').click();
             }
             
-            addProduct(productItem.product, productItem.pageType, productList, productItem, orderOb)
-        })
+            // addProduct(productItem.product, productItem.pageType, productList, productItem, orderOb)
+        });
     });
 }

@@ -22,13 +22,12 @@ socket.on("connect", () => {
   document.getElementById("fries").addEventListener("click", () => {
     page("fries");
   });
-  document.getElementById("sauces").addEventListener("click", () => {
-    page("sauces");
-  });
   socket.on("productsItems", (productItems) => {
     productlist = productItems;
     document.getElementById("fries").click();
     document.getElementById("containerItems").children[0].click();
+    document.getElementById("addto-order").click();
+
     // beef = productItems.burgers.beef;
   });
 });
@@ -54,8 +53,57 @@ function page(pageType, productroot) {
     
     document.getElementById('containerItems').appendChild(productDiv)
     productDiv.addEventListener('click', () => {
-      addProduct(product, pageType, productlist, orderOb)
+      addProduct(product, pageType, productlist, false, orderOb)
     })
   })
 }
 
+jsml.createHTMLElement('button', document.getElementById('order-display'), 'complete order', {"id":"seeOrder", "addEventListener":['click', ()=>{
+    let sidebarElls = Array.from(document.getElementsByClassName('product_type'));
+    let containerItems = document.getElementById('containerItems');
+    containerItems.classList.add('complete-order')
+    jsml.deleteChildren(containerItems)
+
+
+    sidebarElls.map(el=>{
+      el.style.display = 'none';
+    });
+    jsml.deleteChildren(containerItems)
+    document.getElementById('sidebar').style.display = 'none';
+    document.getElementById('subtitle').style.display = 'none';
+    document.getElementById('h1').style.display = 'none';
+
+
+
+
+    let orderContainer = jsml.createHTMLElement('div', containerItems);
+    orderContainer.classList.add('orderContainer')
+
+    orderOb.products.map(productData=>{
+        let product = productData.product
+        let productItem = jsml.elementFromHtml(`
+        <div class="product-item">
+        <p>${productData.amount + " X " + product.name}</p>
+        
+        </div>`)
+        orderContainer.appendChild(productItem)
+
+    });
+
+
+
+
+
+    containerItems.appendChild(jsml.elementFromHtml(`
+    <button id="back" class="btn btn-light">Terug</button>
+    `));
+    document.getElementById('back').addEventListener('click', ()=>{
+        jsml.deleteChildren(containerItems)
+        sidebarElls.map(el=>{
+            el.style.display = 'flex';
+        })
+        containerItems.classList.remove('complete-order')
+        document.getElementById('sidebar').style.display = 'flex';
+        document.getElementById("drinks").click()
+    });
+}]});

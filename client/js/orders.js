@@ -7,12 +7,12 @@ socket.on('connect', ()=> {
         orders.map(order=>{
 
 
-            // let orderElement = jsml.createHTMLElement('div', document.body, false, {"classList":"orderElement"})
-            // jsml.createHTMLElement('p', orderElement, "Order id: " + order.orderId, {"classList":"orderId"})
-            // displayProduct(order, orderElement, 'drinks')
-            // displayProduct(order, orderElement, 'burgers')
-            // displayProduct(order, orderElement, 'fries')
-            // displayProduct(order, orderElement, 'sauces')
+            let orderElement = jsml.createHTMLElement('div', document.body, false, {"classList":"orderElement"})
+            jsml.createHTMLElement('p', orderElement, "Order id: " + order.orderId, {"classList":"orderId"})
+            displayProduct(order, orderElement, 'drinks')
+            displayProduct(order, orderElement, 'burgers')
+            displayProduct(order, orderElement, 'fries')
+            displayProduct(order, orderElement, 'sauces')
 
 
             if (order.status === "paid"){
